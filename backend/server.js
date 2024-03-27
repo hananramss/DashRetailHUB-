@@ -13,7 +13,7 @@ app.use(express.json())
 
 // Enable CORS middleware
 app.use(cors({
-    origin: ["https://dashretailhub-ta3x.onrender.com/"],
+    origin: ["https://dashretailhub-ta3x.onrender.com"],
     credentials: true
 }));
 
