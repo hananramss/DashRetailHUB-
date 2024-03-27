@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Lines } from '../Chart/Lines';
 import { Bar } from 'react-chartjs-2';
 import { baseUrl } from '../../utils/constant';
 

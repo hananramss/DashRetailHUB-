@@ -40,6 +40,7 @@ export const DeleteModal = ({product, onConfirm, isOpen, onRequestClose}) => {
                     position: 'relative',
                     inset: '0',
                     overflow: '0',
+                    borderRadius: '0',
                     outline: 'none',
                     padding: '0',
                     width:'70%',

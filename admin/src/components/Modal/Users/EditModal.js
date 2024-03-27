@@ -16,7 +16,7 @@ export const EditModal = ({user, onConfirm, isOpen, onRequestClose }) => {
     const [phone, setPhone] = useState(user?.pricePHP || '');
     const [createdAt, setCreatedAt] = useState(user?.createdAt || '');
     const [verified, setVerified] = useState(user?.verified || false);
-    // const [showModal, setShowModal] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false); // Add state for tracking form submission
 
 
@@ -112,6 +112,7 @@ export const EditModal = ({user, onConfirm, isOpen, onRequestClose }) => {
                     position: 'relative',
                     inset: '0',
                     overflow: '0',
+                    borderRadius: '0',
                     outline: 'none',
                     padding: '0',
                     width:'70%',

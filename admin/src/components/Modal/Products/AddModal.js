@@ -16,8 +16,8 @@ export const AddModal = ({ isOpen, onRequestClose }) => {
     const [createdAt, setCreatedAt] = useState('');
     const [inStock, setInStock] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
-    // const [showModal, setShowModal] = useState(false);
-    // const [error, setError] = useState('');
+    const [showModal, setShowModal] = useState(false);
+    const [error, setError] = useState('');
 
     // Function to handle form submission (Add)
     const handleSubmit = (e) => {

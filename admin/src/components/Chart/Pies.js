@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Chart as ChartJS } from "chart.js/auto";
 import { Pie } from 'react-chartjs-2';
+import { defaults } from 'chart.js';
 import { baseUrl } from '../../utils/constant';
 
 
