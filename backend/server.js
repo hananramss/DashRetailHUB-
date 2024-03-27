@@ -1,7 +1,8 @@
-const express = require("express")
-const mongoose = require("mongoose")
+const express = require("express");
+const mongoose = require("mongoose");
 const cookieParser = require('cookie-parser');
-const cors = require("cors")
+const cors = require("cors");
+const path = require('path');
 require("dotenv").config()
 
 const dashboardRoutes = require('./routes/dashboardRoutes');
@@ -37,6 +38,14 @@ app.use(cookieParser())
 app.get('/', (req, res) => {
     res.json({ message: 'Successfully deployed backend.' });
 });
+
+// Serve static files from the 'build' directory
+app.use(express.static(path.join(__dirname, 'build')));
+
+// Serve React app
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
 
 //Set up server
 const PORT = process.env.PORT || 5000;
