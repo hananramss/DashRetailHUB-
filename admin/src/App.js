@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Outlet, Navigate } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Outlet, Navigate } from 'react-router-dom';
 import { Dashboard } from './pages/Dashboard'
 import { Products } from './pages/Products';
 import { Users } from './pages/Users';
@@ -36,8 +36,8 @@ const Layout = () => {
 export const App = () => {
 
   return (
-    <Router>
-      <Routes>
+    <BrowserRouter>
+      <Switch>
         {/* Public routes */}
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login/>} />
@@ -55,7 +55,7 @@ export const App = () => {
           <Route path="/salesChart" element={<SalesChart />} />
           <Route path="/expensesChart" element={<SalesChart />} />
         </Route>
-      </Routes>
-    </Router>
+      </Switch>
+    </BrowserRouter>
   );
 }
