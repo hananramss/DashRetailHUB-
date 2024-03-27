@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Bar } from 'react-chartjs-2';
 import { baseUrl } from '../../utils/constant';
+import { Navbar } from '../Navbar';
+import { Menu } from '../Menu';
 
 import '../../styles/components/Charts/ExpensesChart.scss';
+import '../../styles/main/main.scss';
 
 export const ExpensesChart = () => {
     const [totalExpenses, setTotalExpenses] = useState({ amount: 0 });
@@ -118,6 +121,12 @@ export const ExpensesChart = () => {
     });
   
     return (
+      <div className="main">
+      <Navbar /> {/* Render Navbar component */}
+      <div className="container">
+        <div className="menuContainer">
+          <Menu /> {/* Render Menu component */}
+        </div>
       <div className="expensesChart" style={{ height: '85%' }}>
         <div className="title-container">
           <div className="title">Total Expenses {selectedYear}</div>
@@ -164,6 +173,8 @@ export const ExpensesChart = () => {
           }}
         />
       </div>
+      </div>
+    </div>
     );
   };
   
