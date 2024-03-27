@@ -38,6 +38,14 @@ app.get('/', (req, res) => {
     res.json({ message: 'Successfully deployed backend.' });
 });
 
+// Serve static files from the 'build' directory
+app.use(express.static(path.join(__dirname, 'build')));
+
+// Define a catch-all route that serves index.html for all other routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 //Set up server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
