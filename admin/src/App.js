@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Outlet, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Outlet, Navigate } from 'react-router-dom';
 import { Dashboard } from './pages/Dashboard'
 import { Products } from './pages/Products';
 import { Users } from './pages/Users';
@@ -37,7 +37,7 @@ export const App = () => {
 
   return (
     <BrowserRouter>
-      <Switch>
+      <Routes>
         {/* Public routes */}
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login/>} />
@@ -53,9 +53,9 @@ export const App = () => {
           <Route path="/orders" element={<Orders />} />
           <Route path="/incomeChart" element={<IncomeChart />} />
           <Route path="/salesChart" element={<SalesChart />} />
-          <Route path="/expensesChart" element={<ExpensesChart />} />
+          <Route path="/expensesChart" element={<SalesChart />} />
         </Route>
-      </Switch>
+      </Routes>
     </BrowserRouter>
   );
 }
