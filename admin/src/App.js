@@ -43,7 +43,7 @@ export const App = () => {
         <Route path="/login" element={<Login/>} />
         
         {/* Default route to the login page */}
-        <Route element={<Navigate to="/login" />} />
+        <Route path="/" element={<Navigate to="/login" />} />
         
         {/* Private routes */}
         <Route element={<Layout />}>
