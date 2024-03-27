@@ -31,7 +31,7 @@ db.once("open", () => {
 });
 
 // Use your router for the specified routes
-app.use('/api', dashboardRoutes);git
+app.use('/api', dashboardRoutes);
 app.use(cookieParser())
 
 // Define routes
