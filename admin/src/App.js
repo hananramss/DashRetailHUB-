@@ -53,7 +53,7 @@ export const App = () => {
           <Route path="/orders" element={<Orders />} />
           <Route path="/incomeChart" element={<IncomeChart />} />
           <Route path="/salesChart" element={<SalesChart />} />
-          <Route path="/expensesChart" element={<SalesChart />} />
+          <Route path="/expensesChart" element={<ExpensesChart />} />
         </Route>
       </Routes>
     </BrowserRouter>
