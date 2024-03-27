@@ -3,51 +3,38 @@ const mongoose = require("mongoose");
 const cookieParser = require('cookie-parser');
 const cors = require("cors");
 const path = require('path');
-require("dotenv").config()
+require("dotenv").config();
 
 const dashboardRoutes = require('./routes/dashboardRoutes');
 
-// init app % middleware
-const app = express()
-app.use(express.json()) 
+// Initialize Express app
+const app = express();
 
-// Enable CORS middleware
+// Middleware
+app.use(express.json());
 app.use(cors({
     origin: ["https://dashretailhub-ta3x.onrender.com"],
     credentials: true
 }));
+app.use(cookieParser());
 
-// db connection
-mongoose.connect(process.env.MONGO_URI)
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log("Connected to MongoDB"))
+    .catch(err => console.error("MongoDB connection error:", err));
 
-const db = mongoose.connection;
-
-db.on("error", (err) => {
-    console.error("MongoDB connection error:", err);
-});
-
-db.once("open", () => {
-    console.log("Connected to MongoDB");
-});
-
-// Use your router for the specified routes
+// API routes
 app.use('/api', dashboardRoutes);
-app.use(cookieParser())
 
-// Define routes
-app.get('/', (req, res) => {
-    res.json({ message: 'Successfully deployed backend.' });
-});
-
-// Serve static files from the 'build' directory
+// Serve static files
 app.use(express.static(path.join(__dirname, '..', 'build')));
 
-// Serve React app
-app.get('/*', (req, res) => {
+// Serve React app for all routes
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
-  });
+});
 
-//Set up server
+// Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
