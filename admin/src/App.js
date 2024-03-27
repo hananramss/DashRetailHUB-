@@ -36,7 +36,7 @@ const Layout = () => {
 export const App = () => {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <Routes>
         {/* Public routes */}
         <Route path="/register" element={<Register />} />
