@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, Outlet, Navigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Dashboard } from './pages/Dashboard'
 import { Products } from './pages/Products';
 import { Users } from './pages/Users';
@@ -16,7 +16,6 @@ import { Login } from './components/Auth/Login';
 import './styles/main/main.scss';
 
 const Layout = () => {
-  
   return (
     <div className="main">
       <Navbar />
@@ -34,27 +33,30 @@ const Layout = () => {
 }
 
 export const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulate authentication status
 
   return (
     <BrowserRouter>
       <Routes>
         {/* Public routes */}
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login/>} />
-        
-        {/* Default route to the login page */}
-        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         
         {/* Private routes */}
-        <Route element={<Layout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/incomeChart" element={<IncomeChart />} />
-          <Route path="/salesChart" element={<SalesChart />} />
-          <Route path="/expensesChart" element={<ExpensesChart />} />
-        </Route>
+        {isLoggedIn ? (
+          <>
+            <Route path="/" element={<Layout />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/incomeChart" element={<IncomeChart />} />
+            <Route path="/salesChart" element={<SalesChart />} />
+            <Route path="/expensesChart" element={<ExpensesChart />} />
+          </>
+        ) : (
+          <Route path="/" element={<Navigate to="/login" />} />
+        )}
       </Routes>
     </BrowserRouter>
   );
