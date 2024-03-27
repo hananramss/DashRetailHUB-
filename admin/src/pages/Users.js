@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
-import { usersUrl } from '../utils/constant';
+import { baseUrl } from '../utils/constant';
 import { 
   CheckCircleFilled, 
   CloseCircleFilled, 
@@ -32,7 +32,7 @@ export const Users = () => {
   
   // useEffect to fetch transactions from the server when the component mounts
   useEffect(() => {
-    axios.get(`${usersUrl}`)
+    axios.get(`${baseUrl}/api/getAllUsers`)
       .then(res => {
         console.log('API Response:', res.data);
         setData(res.data);  // Update the state with the fetched data

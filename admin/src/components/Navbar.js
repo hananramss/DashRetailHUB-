@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import { SearchOutlined  } from '@ant-design/icons';
 import { BellOutlined  } from '@ant-design/icons';
-import { logoutAdmin } from "../utils/constant";
+import { baseUrl } from "../utils/constant";
 import { useNavigate } from 'react-router-dom';
 
 import '../styles/components/navbar.scss'
@@ -17,7 +17,7 @@ export const Navbar = () => {
   
   const handleLogout = (e) => {
     e.preventDefault();
-    axios.get(`${logoutAdmin}`)
+    axios.get(`${baseUrl}/api/logoutAdmin`)
       .then((res) => {
         if (res.data.success) {
           navigate('/login');

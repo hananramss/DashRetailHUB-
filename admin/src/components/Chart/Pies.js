@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Chart as ChartJS } from "chart.js/auto";
 import { Pie } from 'react-chartjs-2';
 import { defaults } from 'chart.js';
-import { expensesUrl } from '../../utils/constant';
+import { baseUrl } from '../../utils/constant';
 
 
 export const Pies = () => {
@@ -14,7 +14,7 @@ export const Pies = () => {
 
   useEffect(() => {
     axios
-      .get(`${expensesUrl}`)
+      .get(`${baseUrl}/api/getAllExpenses`)
       .then((res) => {
         console.log('API Response:', res.data);
 

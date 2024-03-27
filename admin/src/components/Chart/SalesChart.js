@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Lines } from '../Chart/Lines';
 import { Bar } from 'react-chartjs-2';
-import { salesUrl } from '../../utils/constant';
+import { baseUrl } from '../../utils/constant';
 
 import '../../styles/components/Charts/SalesChart.scss';
 
@@ -20,7 +20,7 @@ export const SalesChart = () => {
 
     useEffect(() => {
         axios
-            .get(`${salesUrl}`)
+            .get(`${baseUrl}/api/getAllsales`)
             .then((res) => {
                 console.log('API Response:', res.data);
 

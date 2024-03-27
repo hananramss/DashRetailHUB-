@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { usersUpdateUrl } from '../../../utils/constant';
+import { baseUrl } from '../../../utils/constant';
 import Modal from 'react-modal';
 
 // Create a new Modal instance
@@ -58,7 +58,7 @@ export const EditModal = ({user, onConfirm, isOpen, onRequestClose }) => {
           verified,
         };
   
-        const response = await axios.put(`${usersUpdateUrl}/${user._id}`, updatedUser);
+        const response = await axios.put(`${baseUrl}/api/updateUsers/${user._id}`, updatedUser);
   
         console.log('User updated successfully:', response.data);
         onConfirm(); // Call onConfirm to close the modal or perform additional actions

@@ -1,13 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-import { usersDeleteUrl } from '../../../utils/constant';
+import { baseUrl } from '../../../utils/constant';
 import Modal from 'react-modal';
 
 export const DeleteModal = ({user, onConfirm, isOpen, onRequestClose}) => {
 
     const handleSubmit = async () => {
         try {
-          const response = await axios.delete(`${usersDeleteUrl}/${user._id}`);
+          const response = await axios.delete(`${baseUrl}/api/deleteUsers/${user._id}`);
           console.log('After axios.delete:', response.data);
           onConfirm(); // Call the onConfirm callback passed as a prop
           onRequestClose();  // Call the onClose callback passed as a prop

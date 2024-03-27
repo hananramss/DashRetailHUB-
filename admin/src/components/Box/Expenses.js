@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { EyeFilled, MoreOutlined, ArrowUpOutlined, ArrowDownOutlined, CreditCardOutlined    } from '@ant-design/icons';
 import { Menu, Dropdown } from 'antd';
-import { expensesUrl } from '../../utils/constant';
+import { baseUrl } from '../../utils/constant';
 import '../../styles/components/Box/sales.scss';
 import axios from 'axios';
 
@@ -15,7 +15,7 @@ export const Expenses = () => {
 
   useEffect(() => {
     axios
-      .get(`${expensesUrl}`)
+      .get(`${baseUrl}/api/getAllExpenses`)
       .then((res) => {
         console.log('Response data:', res.data);
 

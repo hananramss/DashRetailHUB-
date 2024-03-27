@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { usersAddUrl } from '../../../utils/constant';
+import { baseUrl } from '../../../utils/constant';
 import Modal from 'react-modal';
 
 // Create a new Modal instance
@@ -34,7 +34,7 @@ export const AddModal = ({ isOpen, onRequestClose }) => {
     // Function to handle form submission (Add)
     const handleSubmit = (e) => {
         e.preventDefault(); // Add e as a parameter here
-        axios.post(`${usersAddUrl}`, {firstname, lastname, email, phone, createdAt, verified: isChecked })
+        axios.post(`${baseUrl}/api/createUsers`, {firstname, lastname, email, phone, createdAt, verified: isChecked })
             .then(res => {
                 console.log('API Response:', res.data);
                 onRequestClose(); // Close the modal after successful submission

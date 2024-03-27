@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Bar } from 'react-chartjs-2';
-import { expensesUrl } from '../../utils/constant';
+import { baseUrl } from '../../utils/constant';
 
 import '../../styles/components/Charts/ExpensesChart.scss';
 
@@ -18,7 +18,7 @@ export const ExpensesChart = () => {
   
     useEffect(() => {
       axios
-        .get(`${expensesUrl}`)
+        .get(`${baseUrl}/api/getAllExpenses`)
         .then((res) => {
           console.log('API Response:', res.data);
   

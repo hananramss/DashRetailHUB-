@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { EyeFilled, MoreOutlined, ArrowUpOutlined, ArrowDownOutlined, BarChartOutlined } from '@ant-design/icons';
 import { Menu, Dropdown } from 'antd';
-import { salesUrl } from '../../utils/constant';
+import { baseUrl } from '../../utils/constant';
 import '../../styles/components/Box/sales.scss';
 import axios from 'axios';
 
@@ -15,7 +15,7 @@ export const Sales = () => {
 
   useEffect(() => {
     axios
-      .get(`${salesUrl}`)
+      .get(`${baseUrl}/api/getAllsales`)
       .then((res) => {
         const currentDate = new Date();
         const currentYear = currentDate.getFullYear();

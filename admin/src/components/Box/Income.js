@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { EyeFilled, MoreOutlined, ArrowUpOutlined, ArrowDownOutlined, DollarCircleOutlined   } from '@ant-design/icons';
 import { Menu, Dropdown } from 'antd';
 
-import { salesUrl } from '../../utils/constant';
+import { baseUrl } from '../../utils/constant';
 
 import '../../styles/components/Box/sales.scss';
 
@@ -19,7 +19,7 @@ export const Income = () => {
   useEffect(() => {
     const today = new Date().toISOString().split('T')[0]; // Get today's date in ISO format
   
-    axios.get(`${salesUrl}`)
+    axios.get(`${baseUrl}/api/getAllsales`)
       .then((res) => {
         const todaySales = res.data.filter((sale) => sale.InvoiceDate.startsWith(today));
         console.log('Sales Data:', res.data);

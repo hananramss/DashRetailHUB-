@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Bar } from 'react-chartjs-2';
-import { salesUrl } from '../../utils/constant';
+import { baseUrl } from '../../utils/constant';
 import '../../styles/components/Charts/IncomeCharts.scss';
 
 export const IncomeChart = () => {
@@ -23,7 +23,7 @@ export const IncomeChart = () => {
   useEffect(() => {
     const today = new Date().toISOString().split('T')[0]; // Get today's date in ISO format
   
-    axios.get(`${salesUrl}`)
+    axios.get(`${baseUrl}/api/getAllsales`)
       .then((res) => {
         const todaySales = res.data.filter((sale) => sale.InvoiceDate.startsWith(today));
         console.log('Sales Data:', todaySales);

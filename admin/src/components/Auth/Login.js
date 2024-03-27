@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { UserOutlined, MailFilled , LockFilled } from '@ant-design/icons';
-import { loginAdmin } from "../../utils/constant";
+import { baseUrl } from "../../utils/constant";
 import { useNavigate, Link } from "react-router-dom";
 
 import '../../styles/components/Auth/Login.scss'
@@ -17,7 +17,7 @@ export const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`${loginAdmin}`, { email, password })
+      .post(`${baseUrl}/api/loginAdmin`, { email, password })
       .then((res) => {
         if (res.data.message === "User not registered") {
             setError("User not registered");

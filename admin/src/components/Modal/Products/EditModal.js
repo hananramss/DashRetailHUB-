@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { productsUpdateUrl } from '../../../utils/constant';
+import { baseUrl } from '../../../utils/constant';
 import Modal from 'react-modal';
 
 // Create a new Modal instance
@@ -60,7 +60,7 @@ export const EditModal = ({product, onConfirm, isOpen, onRequestClose }) => {
           inStock,
         };
   
-        const response = await axios.put(`${productsUpdateUrl}/${product._id}`, updatedProduct);
+        const response = await axios.put(`${baseUrl}/api/updateProducts/${product._id}`, updatedProduct);
   
         console.log('Product updated successfully:', response.data);
         onConfirm(); // Call onConfirm to close the modal or perform additional actions

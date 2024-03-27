@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { productsAddUrl } from '../../../utils/constant';
+import { baseUrl } from '../../../utils/constant';
 import Modal from 'react-modal';
 
 // Create a new Modal instance
@@ -22,7 +22,7 @@ export const AddModal = ({ isOpen, onRequestClose }) => {
     // Function to handle form submission (Add)
     const handleSubmit = (e) => {
         e.preventDefault(); // Add e as a parameter here
-        axios.post(`${productsAddUrl}`, {title, color, pricePHP, producer, createdAt, inStock: isChecked })
+        axios.post(`${baseUrl}/api/createProducts`, {title, color, pricePHP, producer, createdAt, inStock: isChecked })
             .then(res => {
                 console.log('API Response:', res.data);
                 onRequestClose(); // Close the modal after successful submission

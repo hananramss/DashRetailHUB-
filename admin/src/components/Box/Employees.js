@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { EyeFilled, MoreOutlined, TeamOutlined  } from '@ant-design/icons';
 import { Menu, Dropdown } from 'antd';
-import { employeesUrl } from '../../utils/constant';
+import { baseUrl } from '../../utils/constant';
 import '../../styles/components/Box/sales.scss';
 import axios from 'axios';
 
@@ -12,7 +12,7 @@ export const Employees = () => {
 
   useEffect(() => {
     axios
-      .get(`${employeesUrl}`)
+      .get(`${baseUrl}/api/getAllEmployees`)
       .then((res) => {
         console.log(res.data); // Log the response to check its structure
         const totalEmployeesCount = res.data.length;

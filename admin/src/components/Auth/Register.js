@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { UserOutlined, MailFilled, LockFilled } from '@ant-design/icons';
-import { registerAdmin } from "../../utils/constant";
+import { baseUrl } from "../../utils/constant";
 import { useNavigate, Link  } from "react-router-dom";
 
 import '../../styles/components/Auth/Login.scss'
@@ -24,7 +24,7 @@ export const Register = () => {
     }
   
     axios
-      .post(`${registerAdmin}`, { username, email, password }) 
+      .post(`${baseUrl}/api/registerAdmin`, { username, email, password }) 
       .then((res) => {
         if (res.data.error) {
           setError(res.data.error);
