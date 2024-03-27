@@ -46,7 +46,7 @@ export const Navbar = () => {
           <span className="span">1</span>
         </div>
         <div className="user" onClick={toggleDropdown}>
-          <img src="/assets/profile.png" alt="Profile"/>
+          <img src="/assets/profile.png" alt="Profile Picture"/>
           <span className="username">{username}</span>
           {dropdownVisible && (
           <div className="dropdown-content">

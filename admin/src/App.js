@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet, Navigate } from 'react-router-dom';
-import { Dashboard } from './pages/Dashboard';
+import { Dashboard } from './pages/Dashboard'
 import { Products } from './pages/Products';
 import { Users } from './pages/Users';
 import { Orders } from './pages/Orders';
@@ -43,7 +43,7 @@ export const App = () => {
         <Route path="/login" element={<Login/>} />
         
         {/* Default route to the login page */}
-        <Route path="/" element={<Navigate to="/login" />} />
+        <Route element={<Navigate to="/login" />} />
         
         {/* Private routes */}
         <Route element={<Layout />}>
@@ -53,6 +53,7 @@ export const App = () => {
           <Route path="/orders" element={<Orders />} />
           <Route path="/incomeChart" element={<IncomeChart />} />
           <Route path="/salesChart" element={<SalesChart />} />
+          <Route path="/expensesChart" element={<SalesChart />} />
         </Route>
       </Routes>
     </Router>
