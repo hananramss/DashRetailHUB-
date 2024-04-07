@@ -8,7 +8,7 @@ import {
   SettingOutlined,
   BarChartOutlined,
   FileTextOutlined,
-  UserOutlined,
+  UsergroupAddOutlined,
 } from '@ant-design/icons';
 import '../styles/components/menu.scss';
 
@@ -39,7 +39,7 @@ export const Menu = () => {
           <span className="listItemTitle">Orders</span>
         </Link>
         <Link to="/employee" className={`listItem ${location.pathname === '/employee' ? 'active' : ''}`}>
-          <UserOutlined  />
+          <UsergroupAddOutlined />
           <span className="listItemTitle">Employee</span>
         </Link>
       </div>
