@@ -3,9 +3,10 @@ import axios from 'axios';
 import { baseUrl } from '../../utils/constant';
 import { PlusCircleFilled, SearchOutlined, CheckCircleFilled, CloseCircleFilled, EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import ReactPaginate from 'react-paginate';
-import AddModal from './AddModal'; 
-import EditModal from './EditModal';
-import DeleteModal from './DeleteModal'; 
+import { AddModal } from '../Modal/Employee/AddModal';
+import { EditModal } from '../Modal/Employee/EditModal';
+import { DeleteModal } from '../Modal/Employee/DeleteModal';
+
 
 export const Employee = () => {
   const [employees, setEmployees] = useState([]);
