@@ -45,7 +45,7 @@ export const EditModal = ({employee, onConfirm, isOpen, onRequestClose }) => {
             Salary,
         };
   
-        const response = await axios.put(`${baseUrl}/api/updatedEmployee/${employee._id}`, updatedEmployees);
+        const response = await axios.put(`${baseUrl}/api/updateEmployee/${employee._id}`, updatedEmployees);
   
         console.log('Employee updated successfully:', response.data);
         onConfirm(); // Call onConfirm to close the modal or perform additional actions
