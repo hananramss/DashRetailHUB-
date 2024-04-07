@@ -9,6 +9,7 @@ import { DeleteModal } from '../Modal/Employee/DeleteModal';
 
 
 export const Employee = () => {
+  const [data, setData] = useState([]);
   const [employees, setEmployees] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -164,14 +165,14 @@ return (
       />
 
       <EditModal 
-        product={selectedProduct} 
+        product={selectedEmployee} 
         onConfirm={handleUpdateConfirm}  
         isOpen={showEditModal} 
         onRequestClose={() => setShowEditModal(false)} 
       />
 
       <DeleteModal 
-        product={selectedProduct} 
+        product={selectedEmployee} 
         onConfirm={handleUpdateConfirm}  
         isOpen={showDeleteModal} 
         onRequestClose={() => setShowDeleteModal(false)} 
