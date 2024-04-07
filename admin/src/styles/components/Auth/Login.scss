@@ -119,6 +119,15 @@
           
         }
 
+        .input input.error {
+          border: 1px solid red; /* Red border color when there's an error */
+        }
+        
+        .error {
+          color: red;
+          font-size: 0.8rem;
+        }
+
         .btn{
             display: flex;
             align-items: center;
@@ -133,11 +142,16 @@
             border-radius: 40px;
             box-shadow: 0 5px 10px #ccc;
             transition: width 0.3s ease;
-
+            cursor: pointer;
             
             @include sm{
               width: 35%;
             }
+        }
+
+        .loginBtn:hover{
+          background-color:  #E8F0FE;
+          box-shadow: 0 3px 6px #ccc;
         }
       }
 

@@ -9,29 +9,43 @@ import '../../styles/components/Auth/Login.scss'
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
 
   axios.defaults.withCredentials = true;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Clear any previous error messages
+    setEmailError("");
+    setPasswordError("");
+    
+    // Perform client-side validation
+    if (!email.includes('@gmail.com')) {
+      setEmailError("Invalid email address");
+      return;
+    }
+    
     axios
       .post(`${baseUrl}/api/loginAdmin`, { email, password })
       .then((res) => {
         if (res.data.message === "User not registered") {
-            setError("User not registered");
-          } else if (res.data.success) {
-            navigate('/dashboard');
-          } else {
-            setError("An error occurred. Please try again later.");
-          }
+          setEmailError("User not registered");
+        } else if (res.data.success) {
+          // User successfully authenticated
+          navigate('/dashboard');
+        } else {
+          // Authentication failed
+          setPasswordError("Incorrect password");
+        }
       })
       .catch((err) => {
         console.error("Error fetching data:", err);
-        setError("An error occurred. Please try again later."); 
+        setPasswordError("Incorrect password. Please try again.");
       });
   };
+  
 
   return (
     <div className="login">
@@ -41,32 +55,42 @@ export const Login = () => {
         </div>
         <form className="login-form" onSubmit={handleSubmit}>
           <h2>Login</h2>
-          {error && <div style={{ color: "red" }}>{error}</div>}
           <div className="input-container"> 
             <div className="input">
               <label className="label"><MailFilled  /></label>
               <input
-                type="text" // Use type="email" for better validation and autocomplete support
+                type="text"
                 placeholder="Email Address"
                 autoComplete="off"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setEmailError(""); // Clear any previous error
+                }}
+                className={emailError ? "error" : ""}
                 required
               />
             </div>
+            {emailError && <div className="error">{emailError}</div>}
+
             <div className="input">
               <label className="label"><LockFilled /></label>
               <input
                 type="password"
                 placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setPasswordError(""); // Clear any previous error
+                }}
+                className={passwordError ? "error" : ""}
                 required
               />
             </div>
+              {passwordError && <div className="error">{passwordError}</div>}
+              
           </div>
           <div className="btn">
             <button className="loginBtn" type="submit">LOGIN</button>
           </div>
-          {/* <Link to="/forgotPassword">Forgot Password</Link> */}
         </form>
 
         <p className="sub-options">Don't Have an Account? <Link to="/register"> <u>Sign Up</u> </Link> </p>
