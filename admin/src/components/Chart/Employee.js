@@ -7,7 +7,7 @@ import AddModal from './AddModal';
 import EditModal from './EditModal';
 import DeleteModal from './DeleteModal'; 
 
-export const Employees = () => {
+export const Employee = () => {
   const [employees, setEmployees] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);

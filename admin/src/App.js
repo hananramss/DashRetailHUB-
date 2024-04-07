@@ -4,6 +4,7 @@ import { Dashboard } from './pages/Dashboard'
 import { Products } from './pages/Products';
 import { Users } from './pages/Users';
 import { Orders } from './pages/Orders';
+import { Employee } from './components/Chart/Employee';
 import { IncomeChart } from './components/Chart/IncomeChart';
 import { SalesChart } from './components/Chart/SalesChart';
 import { ExpensesChart } from './components/Chart/ExpensesChart';
@@ -54,6 +55,7 @@ export const App = () => {
           <Route path="/incomeChart" element={<IncomeChart />} />
           <Route path="/salesChart" element={<SalesChart />} />
           <Route path="/expensesChart" element={<ExpensesChart />} />
+          <Route path="/employee" element={<Employee />} />
         </Route>
       </Routes>
     </BrowserRouter>
