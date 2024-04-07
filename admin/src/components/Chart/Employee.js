@@ -51,32 +51,20 @@ const handleUpdateConfirm = () => {
 };
 
 
-// Filter data based on the search term
-const filteredData = data.filter((employee) => {
-const HireDate = new Date(employee.HireDate);
-const searchTermLowerCase = searchTerm.toLowerCase();
-
-// Extracting the month name from the date
-const monthName = HireDate.toLocaleString('en-US', { month: 'long' }).toLowerCase();
-
-return (
-  employee.FirstName.toLowerCase().includes(searchTermLowerCase) ||
-  employee.LastName.toLowerCase().includes(searchTermLowerCase) ||
-  employee.Position.toString().includes(searchTermLowerCase) || // Removed unnecessary toLowerCase() conversion
-  employee.Department.toLowerCase().includes(searchTermLowerCase) ||
-  employee.Salary.toLowerCase().includes(searchTermLowerCase) ||
-  monthName.includes(searchTermLowerCase)
-);
-});
-
   // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentemployee = employees
-    .filter((employee) => employee.title.toLowerCase().includes(searchTerm.toLowerCase()))
+  const currentEmployee = employees
+    .filter((employee) => {
+      const fullName = `${employee.FirstName} ${employee.LastName}`.toLowerCase();
+      return (
+        fullName.includes(searchTerm.toLowerCase()) ||
+        employee.Position.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        employee.Department.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        employee.Salary.toString().toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    })
     .slice(indexOfFirstItem, indexOfLastItem);
-
-  const pageCount = Math.ceil(employees.length / itemsPerPage);
 
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected + 1);
@@ -111,7 +99,7 @@ return (
                 </tr>
               </thead>
               <tbody>
-                {currentemployee.map((employee, index) => (
+                {currentEmployee.map((employee, index) => (
                   <tr key={index}>
                     <td>{indexOfFirstItem + index + 1}</td>
                     {/* <td>
@@ -141,7 +129,7 @@ return (
 
       {/* Pagination */}
       <ReactPaginate
-        pageCount={Math.ceil(filteredData.length / itemsPerPage)}
+        pageCount={Math.ceil(employees.length / itemsPerPage)}
         marginPagesDisplayed={1}
         previousLabel="Previous"
         nextLabel="Next"
