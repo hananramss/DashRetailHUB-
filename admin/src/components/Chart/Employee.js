@@ -153,14 +153,14 @@ const handleUpdateConfirm = () => {
       />
 
       <EditModal 
-        product={selectedEmployee} 
+        employee={selectedEmployee} 
         onConfirm={handleUpdateConfirm}  
         isOpen={showEditModal} 
         onRequestClose={() => setShowEditModal(false)} 
       />
 
       <DeleteModal 
-        product={selectedEmployee} 
+        employee={selectedEmployee} 
         onConfirm={handleUpdateConfirm}  
         isOpen={showDeleteModal} 
         onRequestClose={() => setShowDeleteModal(false)} 
