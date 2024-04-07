@@ -41,7 +41,7 @@ export const Employees = () => {
           <div></div>
         </div>
         <div className="percentageInfo">
-            <Link to="/" className="more-icon"> <EyeFilled style={{fontSize:'18px'}}/> </Link>
+            <Link to="/Employee" className="more-icon"> <EyeFilled style={{fontSize:'18px'}}/> </Link>
         </div>
       </div>
       <div className="duration">{currentYear}</div>

@@ -3,20 +3,20 @@ import axios from 'axios';
 import { baseUrl } from '../../../utils/constant';
 import Modal from 'react-modal';
 
-export const DeleteModal = ({product, onConfirm, isOpen, onRequestClose}) => {
+export const DeleteModal = ({employee, onConfirm, isOpen, onRequestClose}) => {
 
     const handleSubmit = async () => {
         try {
-          const response = await axios.delete(`${baseUrl}/api/deleteProducts/${product._id}`);
+          const response = await axios.delete(`${baseUrl}/api/deleteEmployee/${employee._id}`);
           console.log('After axios.delete:', response.data);
           onConfirm(); // Call the onConfirm callback passed as a prop
           onRequestClose();  // Call the onClose callback passed as a prop
 
           window.location.reload();
         } catch (error) {
-          console.error('Error deleting product by ID:', error);
+          console.error('Error deleting employee by ID:', error);
           // ... (rest of your error logging logic)
-          return { error: true, message: 'Failed to delete product.' };
+          return { error: true, message: 'Failed to delete employee.' };
         }
       };
       
@@ -58,7 +58,7 @@ export const DeleteModal = ({product, onConfirm, isOpen, onRequestClose}) => {
                         <form onSubmit={handleSubmit}> 
                             <div className="modal-header">						
                                 <h4 className="modal-title" style={{ fontWeight: 'bold', fontSize: '18px', paddingTop: '30px', paddingLeft: '30px'}}>
-                                  Delete Product
+                                  Delete Employee
                                 </h4>
                             </div>
                             <div className="modal-body" style={{padding: '30px'}}>					

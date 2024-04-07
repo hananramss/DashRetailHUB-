@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { EyeFilled, MoreOutlined, ArrowUpOutlined, ArrowDownOutlined, CreditCardOutlined    } from '@ant-design/icons';
-import { Menu, Dropdown } from 'antd';
+import { EyeFilled, ArrowUpOutlined, ArrowDownOutlined, CreditCardOutlined    } from '@ant-design/icons';
 import { baseUrl } from '../../utils/constant';
 import '../../styles/components/Box/sales.scss';
 import axios from 'axios';
@@ -72,12 +71,6 @@ export const Expenses = () => {
     maximumFractionDigits: 2,
   });
 
-  // const menu = (
-  //   <Menu>
-  //     <Link to="/ExpensesChart">See Chart</Link>
-  //   </Menu>
-  // );
-
   return (
     <div className="salesContainer">
       <div className="sales">
@@ -90,9 +83,6 @@ export const Expenses = () => {
           <div></div>
         </div>
         <div className="percentageInfo">
-          {/* <Dropdown overlay={menu} placement="bottomRight">
-            <Link to="/" className="more-icon"> <MoreOutlined /> </Link>
-          </Dropdown> */}
            <Link to="/ExpensesChart" className="more-icon"> <EyeFilled style={{fontSize:'18px'}}/> </Link>
           <div className="percentage">
             {arrowIcon} {Math.abs(percentageChange).toFixed(2)}%
