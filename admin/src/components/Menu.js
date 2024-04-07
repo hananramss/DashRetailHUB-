@@ -9,6 +9,7 @@ import {
   BarChartOutlined,
   FileTextOutlined,
   UsergroupAddOutlined,
+  LogoutOutlined, 
 } from '@ant-design/icons';
 import '../styles/components/menu.scss';
 
@@ -59,6 +60,12 @@ export const Menu = () => {
         <Link to="/products" className={`listItem ${location.pathname === '/products' ? 'active' : ''}`}>
           <SettingOutlined />
           <span className="listItemTitle">Settings</span>
+        </Link>
+      </div>
+      <div className="itemLogout">
+        <Link to="/" className={`listItem ${location.pathname === '/' ? 'active' : ''}`}>
+          <LogoutOutlined  />
+          <span className="listItemTitle">Logout</span>
         </Link>
       </div>
     </div>
