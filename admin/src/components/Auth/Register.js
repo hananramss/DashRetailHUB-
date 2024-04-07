@@ -65,8 +65,8 @@ export const Register = () => {
         } else {
           // Store username in local storage upon successful registration
           localStorage.setItem('username', username);
-          navigate('/login'); 
           setShowSuccessModal(true); // Show success modal on successful registration
+          navigate('/login'); 
         }
       })
       .catch((err) => {
