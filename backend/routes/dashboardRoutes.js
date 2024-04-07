@@ -24,8 +24,8 @@ router.delete('/deleteUsers/:id', usersController.deleteUsersById);
 
 router.get('/getAllEmployees', employeesController.getAllEmployees);
 router.post('/createEmployee', employeesController.createEmployee);
-router.put('/updateEmployeeById/:id', employeesController.updateEmployeeById);
-router.delete('/deleteEmployeeById/:id', employeesController.deleteEmployeeById);
+router.put('/updateEmployee/:id', employeesController.updateEmployeeById);
+router.delete('/deleteEmployee/:id', employeesController.deleteEmployeeById);
 
 router.get('/getAllOrders', ordersController.getAllOrders);
 
