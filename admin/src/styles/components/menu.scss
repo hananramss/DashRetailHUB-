@@ -4,6 +4,9 @@
 .menu{
     margin-top: 5px;
     height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .item{
         display: flex;
@@ -65,8 +68,9 @@
         }
 
         .itemLogout {
-            margin-top: auto; // Pushes the logout button to the bottom
-          }
+            margin-top: auto; // Pushes the logout button to the bottom edge
+        }
+       
     }
 
 }
