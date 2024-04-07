@@ -39,21 +39,21 @@ export const App = () => {
     <BrowserRouter basename="/">
       <Routes>
         {/* Public routes */}
-        <Route path="https://dashretailhub-ftef.onrender.com/register" element={<Register />} />
-        <Route path="https://dashretailhub-ftef.onrender.com/login" element={<Login/>} />
+        <Route path="https://dashretailhub.netlify.app/register" element={<Register />} />
+        <Route path="https://dashretailhub.netlify.app/login" element={<Login/>} />
         
         {/* Default route to the login page */}
         <Route path="/" element={<Navigate to="/login" />} />
         
         {/* Private routes */}
         <Route element={<Layout />}>
-          <Route path="https://dashretailhub-ftef.onrender.com/dashboard" element={<Dashboard />} />
-          <Route path="https://dashretailhub-ftef.onrender.com/products" element={<Products />} />
-          <Route path="https://dashretailhub-ftef.onrender.com/users" element={<Users />} />
-          <Route path="https://dashretailhub-ftef.onrender.com/orders" element={<Orders />} />
-          <Route path="https://dashretailhub-ftef.onrender.com/incomeChart" element={<IncomeChart />} />
-          <Route path="https://dashretailhub-ftef.onrender.com/salesChart" element={<SalesChart />} />
-          <Route path="https://dashretailhub-ftef.onrender.com/expensesChart" element={<ExpensesChart />} />
+          <Route path="https://dashretailhub.netlify.app/dashboard" element={<Dashboard />} />
+          <Route path="https://dashretailhub.netlify.app/products" element={<Products />} />
+          <Route path="https://dashretailhub.netlify.app/users" element={<Users />} />
+          <Route path="https://dashretailhub.netlify.app/orders" element={<Orders />} />
+          <Route path="https://dashretailhub.netlify.app/incomeChart" element={<IncomeChart />} />
+          <Route path="https://dashretailhub.netlify.app/salesChart" element={<SalesChart />} />
+          <Route path="https://dashretailhub.netlify.app/expensesChart" element={<ExpensesChart />} />
         </Route>
       </Routes>
     </BrowserRouter>
