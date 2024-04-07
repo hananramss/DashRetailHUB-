@@ -11,7 +11,6 @@ const SignupLoginController = require('../controller/SignupLoginController');
 
 router.get('/getAllSales', salesController.getAllSales);
 router.get('/getAllExpenses', expenseController.getAllExpenses);
-router.get('/getAllEmployees', employeesController.getAllEmployees);
 
 router.get('/getAllProducts', productsController.getAllProducts);
 router.post('/createProducts', productsController.createProducts);
@@ -22,6 +21,11 @@ router.get('/getAllUsers', usersController.getAllUsers);
 router.post('/createUsers', usersController.createUsers);
 router.put('/updateUsers/:id', usersController.updateUsersById);
 router.delete('/deleteUsers/:id', usersController.deleteUsersById);
+
+router.get('/getAllEmployees', employeesController.getAllUsers);
+router.post('/createEmployee', employeesController.createEmployee);
+router.put('/updateEmployeeById/:id', employeesController.updateEmployeeById);
+router.delete('/deleteEmployeeById/:id', employeesController.deleteEmployeeById);
 
 router.get('/getAllOrders', ordersController.getAllOrders);
 
