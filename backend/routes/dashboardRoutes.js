@@ -22,7 +22,7 @@ router.post('/createUsers', usersController.createUsers);
 router.put('/updateUsers/:id', usersController.updateUsersById);
 router.delete('/deleteUsers/:id', usersController.deleteUsersById);
 
-router.get('/getAllEmployees', employeesController.getAllUsers);
+router.get('/getAllEmployees', employeesController.getAllEmployees);
 router.post('/createEmployee', employeesController.createEmployee);
 router.put('/updateEmployeeById/:id', employeesController.updateEmployeeById);
 router.delete('/deleteEmployeeById/:id', employeesController.deleteEmployeeById);
