@@ -32,30 +32,46 @@ export const Employee = () => {
       });
   }, []);
 
-  // Function to handle searching
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-    setCurrentPage(1); // Reset to first page when searching
-  };
+// Function to handle searching
+const handleSearch = (event) => {
+  setSearchTerm(event.target.value);
+};
 
-  // Function to handle click on update button
-  const handleUpdateButtonClick = (employee) => {
-    setSelectedEmployee(employee);
-    setShowEditModal(true);
-  };
+ // Handle click on update button
+ const handleUpdateButtonClick = (employee) => {
+  // Pass the entire transaction object to ensure all properties are available
+  setSelectedEmployee(employee);
+};
 
-  // Function to handle confirmation after updating
-  const handleUpdateConfirm = () => {
-    // After updating is successful, you can perform any necessary actions
-    setShowEditModal(false);
-    setSelectedEmployee(null);
-    // You may want to refresh the employee list here
-  };
+// Handle confirmation after updating
+const handleUpdateConfirm = () => {
+  // After deletion is successful, you can reset the selectedTransactionId and close the modal
+  setSelectedEmployeeId(null);
+};
+
+
+// Filter data based on the search term
+const filteredData = data.filter((employee) => {
+const HireDate = new Date(employee.HireDate);
+const searchTermLowerCase = searchTerm.toLowerCase();
+
+// Extracting the month name from the date
+const monthName = HireDate.toLocaleString('en-US', { month: 'long' }).toLowerCase();
+
+return (
+  employee.FirstName.toLowerCase().includes(searchTermLowerCase) ||
+  employee.LastName.toLowerCase().includes(searchTermLowerCase) ||
+  employee.Position.toString().includes(searchTermLowerCase) || // Removed unnecessary toLowerCase() conversion
+  employee.Department.toLowerCase().includes(searchTermLowerCase) ||
+  employee.Salary.toLowerCase().includes(searchTermLowerCase) ||
+  monthName.includes(searchTermLowerCase)
+);
+});
 
   // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentEmployees = employees
+  const currentemployee = employees
     .filter((employee) => employee.title.toLowerCase().includes(searchTerm.toLowerCase()))
     .slice(indexOfFirstItem, indexOfLastItem);
 
@@ -107,10 +123,10 @@ export const Employee = () => {
                     <td>{employee.Department}</td>
                     <td>{new Date(employee.HireDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</td>
                     <td>{employee.Salary}</td>                    <td>
-                      <button href="#editModal" className="icon-btn" onClick={() => { setSelectedProduct(employee); setShowEditModal(true); }}>
+                      <button href="#editModal" className="icon-btn" onClick={() => { setSelectedEmployee(employee); setShowEditModal(true); }}>
                         <EditOutlined className="icon" />
                       </button>
-                      <button href="#deleteModal" className="icon-btn" onClick={() => { setSelectedProduct(employee); setShowDeleteModal(true); }}>
+                      <button href="#deleteModal" className="icon-btn" onClick={() => { setSelectedEmployee(employee); setShowDeleteModal(true); }}>
                         <DeleteOutlined className="icon" />
                       </button>
                     </td>

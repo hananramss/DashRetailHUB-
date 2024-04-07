@@ -172,8 +172,8 @@ export const EditModal = ({employee, onConfirm, isOpen, onRequestClose }) => {
                                       placeholder= "Enter Department" 
                                       className="form-control"  
                                       style={{ borderRadius: '5px', border: '1px solid #ccc', width: '100%', padding: '8px'}}  
-                                      value={pricePHP} 
-                                      onChange={(e) => setPricePHP(e.target.value)} 
+                                      value={Department} 
+                                      onChange={(e) => setDepartment(e.target.value)} 
                                       required
                                     />
                                 </div>
