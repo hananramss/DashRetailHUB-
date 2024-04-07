@@ -36,7 +36,7 @@ export const EditModal = ({employee, onConfirm, isOpen, onRequestClose }) => {
       setIsSubmitting(true); // Set isSubmitting to true when form is submitted
   
       try {
-        const updatedEmployee = {
+        const updatedEmployees = {
             FirstName,
             LastName,
             Position,
@@ -45,7 +45,7 @@ export const EditModal = ({employee, onConfirm, isOpen, onRequestClose }) => {
             Salary,
         };
   
-        const response = await axios.put(`${baseUrl}/api/updatedEmployee/${employee._id}`, updatedEmployee);
+        const response = await axios.put(`${baseUrl}/api/updatedEmployee/${employee._id}`, updatedEmployees);
   
         console.log('Employee updated successfully:', response.data);
         onConfirm(); // Call onConfirm to close the modal or perform additional actions
