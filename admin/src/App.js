@@ -39,21 +39,21 @@ export const App = () => {
     <BrowserRouter basename="/">
       <Routes>
         {/* Public routes */}
-        <Route path="https://dashretailhub.netlify.app/register" element={<Register />} />
-        <Route path="https://dashretailhub.netlify.app/login" element={<Login/>} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login/>} />
         
         {/* Default route to the login page */}
         <Route path="/" element={<Navigate to="/login" />} />
         
         {/* Private routes */}
         <Route element={<Layout />}>
-          <Route path="https://dashretailhub.netlify.app/dashboard" element={<Dashboard />} />
-          <Route path="https://dashretailhub.netlify.app/products" element={<Products />} />
-          <Route path="https://dashretailhub.netlify.app/users" element={<Users />} />
-          <Route path="https://dashretailhub.netlify.app/orders" element={<Orders />} />
-          <Route path="https://dashretailhub.netlify.app/incomeChart" element={<IncomeChart />} />
-          <Route path="https://dashretailhub.netlify.app/salesChart" element={<SalesChart />} />
-          <Route path="https://dashretailhub.netlify.app/expensesChart" element={<ExpensesChart />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/incomeChart" element={<IncomeChart />} />
+          <Route path="/salesChart" element={<SalesChart />} />
+          <Route path="/expensesChart" element={<ExpensesChart />} />
         </Route>
       </Routes>
     </BrowserRouter>
