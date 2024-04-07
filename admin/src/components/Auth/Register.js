@@ -6,6 +6,21 @@ import { useNavigate, Link  } from "react-router-dom";
 
 import '../../styles/components/Auth/Login.scss'
 
+// Modal component for success message
+const SuccessModal = ({ isOpen, onClose }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="modal">
+      <div className="modal-content">
+        <h3>Registration Successful!</h3>
+        <p>Your account has been successfully registered.</p>
+        <button onClick={onClose}>Close</button>
+      </div>
+    </div>
+  );
+};
+
 export const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -14,6 +29,7 @@ export const Register = () => {
   const [usernameError, setUsernameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const navigate = useNavigate();
 
@@ -49,7 +65,8 @@ export const Register = () => {
         } else {
           // Store username in local storage upon successful registration
           localStorage.setItem('username', username);
-          navigate('/login');
+          navigate('/login'); 
+          setShowSuccessModal(true); // Show success modal on successful registration
         }
       })
       .catch((err) => {
@@ -62,6 +79,11 @@ export const Register = () => {
     // Regular expression to validate username containing only letters, numbers, or underscores
     const regex = /^[a-zA-Z0-9_]+$/;
     return regex.test(username);
+  };
+
+  const closeModal = () => {
+    setShowSuccessModal(false);
+    navigate('/login');
   };
   
   return (
@@ -134,6 +156,9 @@ export const Register = () => {
           </div>
         </form>
 
+        {/* Success modal */}
+        <SuccessModal isOpen={showSuccessModal} onClose={closeModal} />
+        
         <p className="sub-options">Don't Have an Account? <Link to="/login"> <u>Login</u> </Link> </p>
       </div>
     </div>
