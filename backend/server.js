@@ -11,11 +11,11 @@ const dashboardRoutes = require('./routes/dashboardRoutes');
 const app = express()
 app.use(express.json()) 
 
-// Enable CORS middleware
-app.use(cors({
-    origin: ["https://dashretailhub.netlify.app],
-    credentials: true
-}));
+// // Enable CORS middleware
+// app.use(cors({
+//     origin: ["https://dashretailhub.netlify.app],
+//     credentials: true
+// }));
 
 // db connection
 mongoose.connect(process.env.MONGO_URI)
