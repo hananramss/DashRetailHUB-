@@ -44,12 +44,12 @@ export const Menu = () => {
           <span className="listItemTitle">Employee</span>
         </Link>
       </div>
+    </div>
       <div className="itemLogout">
         <Link to="/" className={`listItem ${location.pathname === '/' ? 'active' : ''}`}>
           <LogoutOutlined  />
           <span className="listItemTitle">Logout</span>
         </Link>
       </div>
-    </div>
   );
 };
