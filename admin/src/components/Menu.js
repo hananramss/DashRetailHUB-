@@ -44,24 +44,6 @@ export const Menu = () => {
           <span className="listItemTitle">Employee</span>
         </Link>
       </div>
-      // <div className="item">
-      //   <span className="title">ANALYTICS</span>
-      //   <Link to="/dashboard" className={`listItem ${location.pathname === '/dashboard' ? 'active' : ''}`}>
-      //     <BarChartOutlined />
-      //     <span className="listItemTitle">Charts</span>
-      //   </Link>
-      //   <Link to="/users" className={`listItem ${location.pathname === '/users' ? 'active' : ''}`}>
-      //     <FileTextOutlined />
-      //     <span className="listItemTitle">Logs</span>
-      //   </Link>
-      // </div>
-      // <div className="item">
-      //   <span className="title">MAINTENANCE</span>
-      //   <Link to="/products" className={`listItem ${location.pathname === '/products' ? 'active' : ''}`}>
-      //     <SettingOutlined />
-      //     <span className="listItemTitle">Settings</span>
-      //   </Link>
-      // </div>
       <div className="itemLogout">
         <Link to="/" className={`listItem ${location.pathname === '/' ? 'active' : ''}`}>
           <LogoutOutlined  />
