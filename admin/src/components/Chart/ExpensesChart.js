@@ -118,7 +118,7 @@ export const ExpensesChart = () => {
     });
   
     return (
-      <div className="expensesChart" style={{ height: '85%' }}>
+      <div className="expensesChart" style={{ height: '80%' }}>
         <div className="title-container">
           <div className="title">Total Expenses {selectedYear}</div>
           <div className="btns">
