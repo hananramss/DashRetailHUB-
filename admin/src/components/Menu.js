@@ -17,6 +17,7 @@ export const Menu = () => {
   const location = useLocation();
 
   return (
+    <>
     <div className="menu">
       <div className="item">
         <span className="title">MAIN</span>
@@ -51,5 +52,6 @@ export const Menu = () => {
           <span className="listItemTitle">Logout</span>
         </Link>
       </div>
+  </>
   );
 };
